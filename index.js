@@ -11,6 +11,7 @@ document.querySelectorAll("button")[i].addEventListener("click",function(){
     //     console.log(this.style.color="white");
 
     makeSound(clickedButton);
+    buttonAnimation(clickedButton);
 
     
 
@@ -21,6 +22,7 @@ document.querySelectorAll("button")[i].addEventListener("click",function(){
 
 document.addEventListener("keydown", (event)=>{
     makeSound(event.key);
+    buttonAnimation(event.key)
 });
 
 
@@ -59,4 +61,12 @@ audio.play();
 
         default:console.log("wrong move");
     }
+}
+
+function buttonAnimation(currentKey){
+    var activeButton = document.querySelector("."+currentKey);
+    activeButton.classList.add("pressed");
+    setTimeout(function(){
+activeButton.classList.remove("pressed");
+    },100)
 }
